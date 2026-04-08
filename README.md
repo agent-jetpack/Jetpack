@@ -233,18 +233,37 @@ console.log(status.pendingChanges);
 ## CLI Commands
 
 ```bash
-# Start the swarm coordinator
-swarm start
+# Start everything (web UI + agents + auto-init)
+pnpm jetpack start
+
+# Start with options
+pnpm jetpack start -a 5             # 5 agents
+pnpm jetpack start --mock           # Mock mode (no API key needed)
+pnpm jetpack start --no-web         # Agents only, no web UI
 
 # Create a task
-swarm task create --title "Fix login bug" --priority high
+pnpm jetpack task -t "Fix login bug" -p high -s "typescript,security"
 
-# Check swarm status
-swarm status
-
-# List agents
-swarm agents list
+# View status
+pnpm jetpack status
+pnpm jetpack tasks
+pnpm jetpack agents
 ```
+
+## Claude Code Plugin
+
+Install Jetpack as a Claude Code plugin to manage your swarm directly from the editor.
+
+```bash
+/plugin marketplace add agent-jetpack/Jetpack@skills-marketplace
+/plugin install jetpack-skills@jetpack    # Slash commands
+/plugin install jetpack-mcp@jetpack       # MCP tools (16 DataLayer operations)
+/plugin install jetpack-agent@jetpack     # Swarm worker agent
+```
+
+**Skills** — `/jetpack-status`, `/jetpack-tasks`, `/jetpack-agents`, `/jetpack-task`, `/jetpack-start`
+
+**MCP Tools** — Create/list/complete tasks, monitor agents, check quality, send messages, and more — all from within a Claude Code session.
 
 ## Environment Variables
 
