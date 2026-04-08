@@ -1,0 +1,40 @@
+{
+  "name": "jetpack",
+  "owner": {
+    "name": "Jetpack Cloud"
+  },
+  "metadata": {
+    "description": "Jetpack Cloud swarm orchestration plugins for Claude Code",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "jetpack-skills",
+      "source": "./plugins/jetpack-skills",
+      "description": "Slash commands for swarm status, task creation, and agent monitoring",
+      "version": "0.1.0",
+      "tags": ["cli", "status", "tasks"]
+    },
+    {
+      "name": "jetpack-mcp",
+      "source": "./plugins/jetpack-mcp",
+      "description": "MCP server exposing Jetpack DataLayer as tools",
+      "version": "0.1.0",
+      "tags": ["mcp", "data", "tasks", "agents"]
+    },
+    {
+      "name": "jetpack-quality-hook",
+      "source": "./plugins/jetpack-quality-hook",
+      "description": "PostToolUse hook that runs typecheck and lint after file edits",
+      "version": "0.1.0",
+      "tags": ["quality", "lint", "typecheck"]
+    },
+    {
+      "name": "jetpack-agent",
+      "source": "./plugins/jetpack-agent",
+      "description": "Agent definition that joins the Jetpack swarm as a worker",
+      "version": "0.1.0",
+      "tags": ["agent", "swarm", "worker"]
+    }
+  ]
+}

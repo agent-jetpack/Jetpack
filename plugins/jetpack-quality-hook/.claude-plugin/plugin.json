@@ -1,0 +1,18 @@
+{
+  "name": "jetpack-quality-hook",
+  "version": "0.1.0",
+  "description": "Runs typecheck and lint after file edit operations",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/post-tool-use.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

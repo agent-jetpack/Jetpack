@@ -1,0 +1,5 @@
+{
+  "name": "jetpack-skills",
+  "version": "0.1.0",
+  "description": "Slash commands wrapping Jetpack CLI operations"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "jetpack-mcp",
+  "version": "0.1.0",
+  "description": "MCP server exposing Jetpack swarm operations",
+  "mcpServers": {
+    "jetpack": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/dist/server.js"],
+      "cwd": "${CLAUDE_PLUGIN_DATA}",
+      "env": {
+        "JETPACK_WORK_DIR": "."
+      }
+    }
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "diff -q \"${CLAUDE_PLUGIN_ROOT}/runtime-deps.json\" \"${CLAUDE_PLUGIN_DATA}/package.json\" >/dev/null 2>&1 || (cp \"${CLAUDE_PLUGIN_ROOT}/runtime-deps.json\" \"${CLAUDE_PLUGIN_DATA}/package.json\" && cd \"${CLAUDE_PLUGIN_DATA}\" && npm install --no-package-lock 2>/dev/null) || rm -f \"${CLAUDE_PLUGIN_DATA}/package.json\""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "jetpack-agent",
+  "version": "0.1.0",
+  "description": "Claude Code agent that participates in the Jetpack swarm as a worker"
+}
